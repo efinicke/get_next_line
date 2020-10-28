@@ -40,18 +40,10 @@ char	*rest_after_backslash_n(char *bigstring, char **line, char *c)
 
 char	*end_of_file(char *bigstring, char **line)
 {
-	if (!bigstring)
-	{
-		*line = NULL;
-		return (0);
-	}
-	else
-	{
-		*line = ft_strdup(bigstring);
-		free(bigstring);
-		bigstring = NULL;
-		return (bigstring);
-	}
+	*line = ft_strdup(bigstring);
+	free(bigstring);
+	bigstring = NULL;
+	return (bigstring);
 }
 
 int		get_next_line(int fd, char **line)
