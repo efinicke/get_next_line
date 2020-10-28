@@ -6,7 +6,7 @@
 /*   By: efinicke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:25:16 by efinicke          #+#    #+#             */
-/*   Updated: 2020/10/27 19:02:06 by efinicke         ###   ########.fr       */
+/*   Updated: 2020/10/28 14:18:01 by efinicke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ char	*end_of_file(char *bigstring, char **line)
 
 int		get_next_line(int fd, char **line)
 {
-	static char		*bigstring[256] = {NULL};
+	static char		*bigstring[10240] = {NULL};
 	char			*c;
 	char			buf[BUFFER_SIZE + 1];
 	int				read_ret;
 	int				i;
 
 	if (fd < 0 || !line || BUFFER_SIZE < 0 || read(fd, 0, 0) == -1 ||
-			fd >= 256)
+			fd >= 10240)
 		return (-1);
 	while ((read_ret = read(fd, buf, BUFFER_SIZE)) > 0 || i != -1)
 	{
