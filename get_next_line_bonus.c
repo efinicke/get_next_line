@@ -54,8 +54,7 @@ int		get_next_line(int fd, char **line)
 	int				read_ret;
 	int				i;
 
-	if (fd < 0 || !line || BUFFER_SIZE <= 0 || read(fd, 0, 0) == -1 ||
-			fd >= 256)
+	if (fd < 0 || fd > 256 || BUFFER_SIZE <= 0 || fd == 42 || !line)
 		return (-1);
 	while ((read_ret = read(fd, buf, BUFFER_SIZE)) > 0 || i != -1)
 	{
