@@ -48,14 +48,14 @@ char	*end_of_file(char *bigstring, char **line)
 
 int		get_next_line(int fd, char **line)
 {
-	static char		*bigstring[10240] = {NULL};
+	static char		*bigstring[256] = {NULL};
 	char			*c;
 	char			buf[BUFFER_SIZE + 1];
 	int				read_ret;
 	int				i;
 
-	if (fd < 0 || !line || BUFFER_SIZE < 0 || read(fd, 0, 0) == -1 ||
-			fd >= 10240)
+	if (fd < 0 || !line || BUFFER_SIZE <= 0 || read(fd, 0, 0) == -1 ||
+			fd >= 256)
 		return (-1);
 	while ((read_ret = read(fd, buf, BUFFER_SIZE)) > 0 || i != -1)
 	{
