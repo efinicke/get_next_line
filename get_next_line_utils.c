@@ -6,7 +6,7 @@
 /*   By: efinicke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 14:07:01 by efinicke          #+#    #+#             */
-/*   Updated: 2020/10/28 15:06:10 by efinicke         ###   ########.fr       */
+/*   Updated: 2020/10/28 18:46:15 by efinicke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,6 @@ char	*ft_strdup(const char *s1)
 	char *s2;
 	char *stmp;
 
-	if (!s1 || s1[0] = '\0')
-	/*{
-		s2 = malloc(sizeof(char));
-		s1[0] = '\0';
-		return (s2);
-	}*/
 	s2 = malloc(sizeof(*s1) * (ft_strlen(s1) + 1));
 	if (!s2)
 		return (NULL);

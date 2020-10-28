@@ -6,7 +6,7 @@
 /*   By: efinicke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 19:25:16 by efinicke          #+#    #+#             */
-/*   Updated: 2020/10/28 14:18:01 by efinicke         ###   ########.fr       */
+/*   Updated: 2020/10/28 18:45:40 by efinicke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,18 @@ char	*rest_after_backslash_n(char *bigstring, char **line, char *c)
 
 char	*end_of_file(char *bigstring, char **line)
 {
-	*line = ft_strdup(bigstring);
-	free(bigstring);
-	bigstring = NULL;
-	return (bigstring);
+	if (!bigstring)
+	{
+		*line = NULL;
+		return (0);
+	}
+	else
+	{
+		*line = ft_strdup(bigstring);
+		free(bigstring);
+		bigstring = NULL;
+		return (bigstring);
+	}
 }
 
 int		get_next_line(int fd, char **line)
